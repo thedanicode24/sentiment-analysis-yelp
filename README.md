@@ -1,5 +1,9 @@
 # Sentiment Analysis on Yelp Reviews with PySpark
 
+![License](https://img.shields.io/badge/license-MIT-green)
+![Python](https://img.shields.io/badge/python-3.10-blue)
+![Platform](https://img.shields.io/badge/platform-Colab-lightgrey)
+
 This project implements a sentiment analysis pipeline on Yelp review data using Apache Spark and PySpark. The objective is to classify user reviews into positive or negative sentiments by leveraging natural language processing and machine learning techniques.
 
 ## 📌 Overview
