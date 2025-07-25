@@ -6,49 +6,55 @@
 
 This project implements a sentiment analysis pipeline on Yelp review data using Apache Spark and PySpark. The objective is to classify user reviews into positive or negative sentiments by leveraging natural language processing and machine learning techniques.
 
-## 📌 Overview
+### Dataset and Setup
+- The Yelp review dataset was downloaded from Kaggle.
+- Initially, only **1% of the dataset** was used to speed up experimentation and model tuning.
+- The entire dataset was then used to train the final model after model selection.
 
-- **Dataset**: Yelp Review Dataset (1% sample initially, full dataset used after model selection).
-- **Framework**: PySpark, executed on Google Colab.
-- **Goal**: Classify reviews as Positive (1) or Negative (0).
-- **Models Used**:
-  - Logistic Regression
-  - Naive Bayes
-  - Linear Support Vector Classifier (SVC)
+### Goal
+- Classify Yelp reviews into **Positive (1)** or **Negative (0)** sentiment classes.
 
-## 🧪 Workflow
+---
 
-1. **Preprocessing**:
-   - Custom transformer for text cleaning (lowercasing, punctuation removal)
-   - Tokenization
-   - Stopword removal
-   - Stemming (Snowball Stemmer)
-   - TF-IDF vectorization
+## 🧪 Workflow and Methodology
 
-2. **Model Training and Evaluation**:
-   - Split dataset into train/test
-   - Cross-validation (3 folds) to tune hyperparameters
-   - Evaluation using **F1 score**
+1. **Data Preprocessing:**
+   - Custom text cleaning transformer to lowercase text and remove punctuation.
+   - Tokenization of the cleaned text.
+   - Removal of stopwords.
+   - Stemming using Snowball Stemmer.
+   - Conversion to TF-IDF feature vectors.
 
-3. **Model Comparison**:
-   - Compared F1 scores
-   - Select the best model
+2. **Model Training and Evaluation:**
+   - The 1% dataset was split into train/test subsets.
+   - Three machine learning algorithms were trained and evaluated:
+     - Logistic Regression
+     - Naive Bayes
+     - Linear Support Vector Classifier (Linear SVC)
+   - Hyperparameter tuning was done using 3-fold cross-validation.
+   - Models were evaluated mainly based on the **Weighted F1 Score** to handle class imbalance.
 
-4. **Final Training**:
-   - The best model was retrained on the **entire dataset**
+3. **Model Selection:**
+   - The model with the highest Weighted F1 Score was chosen.
 
-5. **Custom Testing**:
-   - Loaded the saved preprocessing pipeline and trained model
-   - Applied to new unseen review texts for prediction
+4. **Final Model Training:**
+   - The selected model was retrained on the **entire Yelp dataset** to maximize learning.
 
-## 📊 Evaluation
+5. **Testing on New Reviews:**
+   - The final trained model and preprocessing pipeline were saved and later loaded.
+   - Predictions were made on new, unseen review texts to verify performance.
 
-- All models were evaluated using the **Weighted F1 Score**, to account for class imbalance and give a balanced view of performance.
-- A comparison table and a visualization were generated to identify the best-performing model.
+---
+
+## 📊 Evaluation Metrics and Visualization
+
+- The main evaluation metric used is the **Weighted F1 Score**, balancing precision and recall across classes.
+- A comparison table of the models’ metrics was created.
+- Confusion matrices and other visualizations were produced to better understand model performance.
+
+---
 
 ## 📁 Project Structure
-
-## Project Structure
 
 - `sentiment-analysis-yelp.ipynb`  
   Main notebook where the pipeline is run and models are trained/tested
@@ -108,13 +114,15 @@ Install all dependencies with:
 pip install -r requirements.txt
 ```
 
-## 🧰 Key Libraries
+---
 
-- **PySpark** – Distributed computing & ML pipelines  
-- **NLTK** – Natural language preprocessing (stemming, stopwords, etc.)  
-- **Pandas** – Tabular data manipulation and summary  
-- **Matplotlib** – Visualizations and metric plotting  
-- **Seaborn** – Enhanced plots and heatmaps
+## 🛠 Technologies and Libraries Used
+
+- **Apache Spark** (PySpark) for scalable data processing and machine learning.
+- **NLTK** for text preprocessing (stopwords, stemming).
+- **Pandas** for tabular data handling.
+- **Matplotlib** and **Seaborn** for plotting and visualization.
+- **Google Colab** as the development and execution environment.
 
 ---
 
