@@ -28,14 +28,11 @@ This project implements a sentiment analysis pipeline on Yelp review data using 
 2. **Model Training and Evaluation**:
    - Split dataset into train/test
    - Cross-validation (3 folds) to tune hyperparameters
-   - Evaluation using **F1 score** and other metrics (accuracy, precision, recall)
+   - Evaluation using **F1 score**
 
 3. **Model Comparison**:
-   - Compared F1 scores:
-     - **Logistic Regression**: 0.9349
-     - **Naive Bayes**: 0.8938
-     - **Linear SVC**: 0.9372
-   - Best model: **Linear SVC**
+   - Compared F1 scores
+   - Select the best model
 
 4. **Final Training**:
    - The best model was retrained on the **entire dataset**
@@ -51,20 +48,57 @@ This project implements a sentiment analysis pipeline on Yelp review data using 
 
 ## 📁 Project Structure
 
-sentiment-analysis-yelp/
-│
-├── sentiment-analysis-yelp.ipynb # Main notebook
-├── requirements.txt # Dependencies
-├── README.md # Project overview
-├── models/ # Saved ML models
-├── preprocessing/ # Custom preprocessing pipeline
-│ ├── text_cleaner.py
-│ └── stemmer.py
-├── utils/ # Utility functions
-│ └── metrics_plot.py
-└── data/
-└── yelp_subset.csv # Sample dataset
+## Project Structure
 
+- `sentiment-analysis-yelp.ipynb`  
+  Main notebook where the pipeline is run and models are trained/tested
+
+- `requirements.txt`  
+  Python dependencies
+
+- `README.md`  
+  Project overview and documentation
+
+- `data_balancing/`  
+  Module for dataset balancing techniques  
+  └── `data_balancing.py`
+
+- `final_model/`  
+  Code for training the final chosen model on full dataset  
+  └── `final_model.py`
+
+- `model_utils/`  
+  Utility scripts for model evaluation and metrics  
+  ├── `model_utils.py`  
+  └── `spark_metrics_utils.py`
+
+- `pipelines/`  
+  Definitions of ML pipelines for different models  
+  ├── `linear_svc.py`  
+  ├── `naive_bayes.py`  
+  └── `logistic_regression.py`
+
+- `preprocessing/`  
+  Text preprocessing scripts and custom transformers  
+  ├── `preprocessing.py`  
+  └── `text_preprocessing.py`
+
+- `utils/`  
+  General utility functions used throughout the project  
+  ├── `colab_utils.py`  
+  ├── `io_utils.py`  
+  ├── `table_utils.py`  
+  └── `time_utils.py`
+
+- `models/`  
+  Saved trained models and preprocessing pipelines  
+  ├── `logistic_regression_model/`  
+  ├── `naive_bayes_model/`  
+  ├── `linear_svc_model/`  
+  ├── `final_model/`  
+  └── `preprocessing_model/`
+
+---
 
 ## 🔧 Requirements
 
@@ -73,6 +107,7 @@ Install all dependencies with:
 ```bash
 pip install -r requirements.txt
 ```
+
 ## 🧰 Key Libraries
 
 - **PySpark** – Distributed computing & ML pipelines  
