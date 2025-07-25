@@ -8,14 +8,14 @@ This project implements a sentiment analysis pipeline on Yelp review data using 
 
 ---
 
-### Dataset and Setup
+## Dataset and Setup
 - The Yelp review dataset was downloaded from Kaggle.
 - Initially, only **1% of the dataset** was used to speed up experimentation and model tuning.
 - The entire dataset was then used to train the final model after model selection.
 
 ---
 
-### Goal
+## Goal
 - Classify Yelp reviews into **Positive (1)** or **Negative (0)** sentiment classes.
 
 ---
