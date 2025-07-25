@@ -9,9 +9,11 @@ This project implements a sentiment analysis pipeline on Yelp review data using 
 ---
 
 ## Dataset and Setup
-- The Yelp review dataset was downloaded from Kaggle.
+- The Yelp review dataset was downloaded from Kaggle. It is also available [here](https://business.yelp.com/data/resources/open-dataset/).
 - Initially, only **1% of the dataset** was used to speed up experimentation and model tuning.
 - The entire dataset was then used to train the final model after model selection.
+
+⚠️ Downloading the dataset from Kaggle requires prior Kaggle API configuration. See: [Kaggle API Setup](https://www.kaggle.com/docs/api).
 
 ---
 
@@ -24,7 +26,7 @@ This project implements a sentiment analysis pipeline on Yelp review data using 
 
 1. **Data Preprocessing:**
    - Custom text cleaning transformer to lowercase text and remove punctuation.
-   - Tokenization of the cleaned text.
+- Tokenization of the cleaned text.
    - Removal of stopwords.
    - Stemming using Snowball Stemmer.
    - Conversion to TF-IDF feature vectors.
