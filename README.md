@@ -104,9 +104,9 @@ This project implements a sentiment analysis pipeline on Yelp review data using 
 
 - `models/`  
   Saved trained models and preprocessing pipelines  
-  ├── `logistic_regression_model/`  
-  ├── `naive_bayes_model/`  
-  ├── `linear_svc_model/`  
+  ├── `lr_model/`  
+  ├── `nb_model/`  
+  ├── `svc_model/`  
   ├── `final_model/`  
   └── `preprocessing_model/`
 
